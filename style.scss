@@ -5,29 +5,39 @@
 }
 
 html {
-  height: 100%;
-
+  box-sizing: border-box;
   body {
-    height: 100%;
-    background: #1f0322;
+    background: /*1f0322*/ linear-gradient(180deg, #6c5ce7, #00d2d3);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
     color: #fff;
 
     .wrapper {
-      width: 80%;
+      width: 90%;
+      box-sizing: border-box;
       display: grid;
       grid-gap: 2rem;
       justify-items: center;
       align-items: center;
 
+      .time {
+        .date-time {
+          padding: 1.5rem;
+          font-size: 1.7rem;
+        }
+      }
+
       .container {
         width: 100%;
+        box-sizing: border-box;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
 
         h2 {
@@ -41,18 +51,104 @@ html {
       }
 
       .temperature {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
+        box-sizing: border-box;
         display: flex;
-        padding: 2rem;
+        padding: 1.2rem;
         font-size: 2.5rem;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.575);
 
         .description {
-          padding: 2rem;
+          padding: 1.5rem;
+          box-sizing: border-box;
+        }
+      }
+
+      .box-container {
+        box-sizing: border-box;
+        display: grid;
+        grid-gap: 2rem;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+        .box {
+          display: flex;
+          box-sizing: border-box;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: #03220867;
+          border-radius: 15px;
+          padding: 1.5rem;
+          h2 {
+            padding: 1.5rem;
+          }
+          .content {
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            //padding: 1.5rem;
+            justify-content: space-around;
+            p {
+              font-size: 1.4rem;
+            }
+          }
         }
       }
     }
   }
 }
+
+@media (max-width: 520px) {
+  body {
+    .wrapper {
+      .container {
+        .timezone {
+          h2 {
+            font-size: 2.3rem;
+          }
+        }
+      }
+      .temperature {
+        .description {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    .wrapper {
+      .temperature {
+        .description {
+          font-size: 1.7rem;
+          text-align: center;
+        }
+      }
+      .box-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+      }
+    }
+  }
+}
+@media (max-width: 360px) {
+  html {
+    body {
+      .wrapper {
+        .time {
+          .date-time {
+            font-size: 1.3rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+// #6c5ce7 color1 ; #00d2d3 color2
